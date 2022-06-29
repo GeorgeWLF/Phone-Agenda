@@ -115,7 +115,7 @@ def enter_contact_record():
     first = input_firstname()
     last = input_lastname()
     phone = input('Enter Phone number ')
-    contact = ("[" + first + " " + last + ", " + phone + "]\n")
+    contact = (first + " " + last + ", " + phone + "\n")
     file1 = open(file_name, "a")
     file1.write(contact)
     print_message( "This contact " + contact + "has been added successfully!")
