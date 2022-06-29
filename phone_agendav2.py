@@ -1,5 +1,7 @@
 import os
 import sys
+from pathlib import Path
+from tracemalloc import start
 
 file_name = "phone_agendav2.txt"
 file1 = open(file_name, "a+")
@@ -46,7 +48,14 @@ def show_main_menu():
         if len(file_contents) == 0:
             print_message("Agenda is empty")
         else:
-            print (sorted(file_contents))
+            count = 0
+            file_contents.sort()
+            for file in file_contents:
+                print ("+" + "-" * 30 + "+\n",
+                count, ".",
+                file, "\n" + "+" + "-" * 30 + "+"
+                )
+                count += 1
         file1.close
         ret_to_main_menu_prompt()
         show_main_menu()
