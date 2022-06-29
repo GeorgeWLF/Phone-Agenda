@@ -1,12 +1,9 @@
 import os
 import sys
-from pathlib import Path
-from tracemalloc import start
 
 file_name = "phone_agendav2.txt"
 file1 = open(file_name, "a+")
 
-next_id = 1
 
 def cls():
     os.system("cls" if os.name == "nt" else "clear")
@@ -35,18 +32,18 @@ def show_main_menu():
     ''' Show main menu for Phone Book Program '''
     print_banner("PHONE AGENDA MENU")
     print("[Enter 1,2,3,4 or 0]\n"+
-          "Enter 1 To Display Your Contacts Records\n" +
-          "Enter 2 To Add a New Contact Record\n"+
-          "Enter 3 To search your contacts\n"+
-          "Enter 4 To search and delete your contacts\n"+
-          "Enter 0 To Quit\n" + "-" * 42)
+          "Enter 1 To Display Your Contacts Records.\n" +
+          "Enter 2 To Add a New Contact Record.\n"+
+          "Enter 3 To search your contacts.\n"+
+          "Enter 4 To search and delete your contacts.\n"+
+          "Enter 0 To Quit.\n" + "-" * 42)
     choice = input("Enter your choice: ")
     if choice == "1":
         print_banner("AGENDA")
         file1 = open(file_name, "r+")
         file_contents = file1.readlines()
         if len(file_contents) == 0:
-            print_message("Agenda is empty")
+            print_message("Agenda is empty.")
         else:
             count = 0
             file_contents.sort()
@@ -73,7 +70,7 @@ def show_main_menu():
         show_main_menu
     elif choice== "0":
         cls()
-        print_message("Thanks for using Phone Agenda")
+        print_message("Thanks for using Phone Agenda.")
         sys.exit()
     else:
         cls()
@@ -96,16 +93,16 @@ def search_contact_record():
             found=True
             break
     if  found == False:
-        print("There's no contact Record in your Agenda with name = " + search_name )
+        print("There's no contact Record in your Agenda with name: " + search_name )
 
 def input_firstname():
     ''' First name '''
-    first_name = input("Enter First name ")
+    first_name = input("Enter First name: ")
     return first_name
 
 def input_lastname():
     ''' Last name '''
-    last_name = input("Enter Last name ")
+    last_name = input("Enter Last name: ")
     return last_name
 
 
@@ -114,7 +111,7 @@ def enter_contact_record():
     print_banner("ADD NEW CONTACT")
     first = input_firstname()
     last = input_lastname()
-    phone = input('Enter Phone number ')
+    phone = input('Enter Phone number: ')
     contact = (first + " " + last + ", " + phone + "\n")
     file1 = open(file_name, "a")
     file1.write(contact)
@@ -124,8 +121,8 @@ def enter_contact_record_again():
     '''Ask if you want to add another contact or not'''
     print_banner("DO YOU WANT TO ADD ANOTHER CONTACT?")
     print ("[Enter 1 or 2]\n"+
-    "Enter 1 to add another contact\n"+
-    "Enter 2 if you dont't want to add another contact"
+    "Enter 1 to add another contact.\n"+
+    "Enter 2 if you dont't want to add another contact."
     )
     choice = input("Enter your choice: ")
     if choice == "1":
@@ -153,8 +150,8 @@ def search_contact_to_delete():
             print (line)
             found=True
             print_message ("[Enter 1 or 2]\n"+
-            "Enter 1 to delete the contact\n"+
-            "Enter 2 if you want to keep it")
+            "Enter 1 to delete the contact.\n"+
+            "Enter 2 if you want to keep it.")
             choice = input("Enter your choice: ")
             if choice == "1":
                 del file_contents[get_line_number(line, file_name)]
@@ -175,7 +172,7 @@ def search_contact_to_delete():
                 ret_to_main_menu_prompt()
                 show_main_menu()
     if found == False:
-        print_message("There's no contact Record in your Agenda with name = " + search_name )
+        print_message("There's no contact Record in your Agenda with name: " + search_name )
         ret_to_main_menu_prompt
         show_main_menu()
 
