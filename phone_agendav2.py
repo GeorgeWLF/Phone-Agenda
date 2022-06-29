@@ -139,16 +139,13 @@ def search_contact_to_delete():
      
     found = False   
     for line in file_contents:
-        if search_name == " " or "":
-            print("Sorry")
         if search_name in line:
             print("Your Required Contact Record is:", end=" ")
             print (line)
             found=True
             print_message ("[Enter 1 or 2]\n"+
             "Enter 1 to delete the contact\n"+
-            "Enter 2 if you want to keep it"
-            )
+            "Enter 2 if you want to keep it")
             choice = input("Enter your choice: ")
             if choice == "1":
                 del file_contents[get_line_number(line, file_name)]
