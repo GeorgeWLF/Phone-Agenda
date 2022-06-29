@@ -21,13 +21,6 @@ def print_message(*msg):
     print(*msg)
     print("-" * 50)
 
-def print_contact(name, phone):
-    print("+" + "-" * 30 + "+")
-    print("Full Name: ", name)
-    print("Phone number: ", phone)
-    print("+" + "-" * 30 + "+")
-    print()
-
 def show_main_menu():
     ''' Show main menu for Phone Book Program '''
     print_banner("PHONE AGENDA MENU")
